@@ -9,6 +9,7 @@ import { StopkaComponent } from './stopka/stopka.component';
 import { ListaComponent } from './lista/lista.component';
 import { DodajComponent } from './dodaj/dodaj.component';
 import { UsunComponent } from './usun/usun.component';
+import { BladComponent } from './blad/blad.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { UsunComponent } from './usun/usun.component';
     StopkaComponent,
     ListaComponent,
     DodajComponent,
-    UsunComponent
+    UsunComponent,
+    BladComponent
   ],
   imports: [
     BrowserModule,
