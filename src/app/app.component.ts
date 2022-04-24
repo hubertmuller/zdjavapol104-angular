@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'projekt';
+  public title = 'projekt';
+  constructor() {
+    this.title += ' 1';
+  }
+  public dodaj(a: number,b: number):number {
+    return a + b;
+  }
+
 }
