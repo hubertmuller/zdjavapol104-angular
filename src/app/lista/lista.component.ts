@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Czlowiek } from '../czlowiek.interface';
 import { ListaService } from '../lista.service';
 
@@ -9,10 +10,15 @@ import { ListaService } from '../lista.service';
 })
 export class ListaComponent implements OnInit {
 
-  public ludzie: Array<Czlowiek>;
+  public ludzie: Array<Czlowiek> = [];
 
   constructor(private listaService: ListaService) {
-    this.ludzie = this.listaService.loadLudzie();
+    this.listaService.loadLudzie().subscribe(
+      (dane) => {
+        this.ludzie = dane;
+        console.log(dane);
+      }
+    );
    }
 
   ngOnInit(): void {
