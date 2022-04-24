@@ -1,5 +1,7 @@
 <h2>lista zapisanych</h2>
 
+<div *ngIf="ludzie.length == 0">Laduje dane...</div>
+
 <table width="100%" border="1">
 <tr *ngFor="let czlowiek of ludzie">
     <td>{{ czlowiek.imie}}</td>
