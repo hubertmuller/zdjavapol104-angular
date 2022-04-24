@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Czlowiek } from '../czlowiek.interface';
+import { ListaService } from '../lista.service';
 
 @Component({
   selector: 'app-lista',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListaComponent implements OnInit {
 
-  constructor() { }
+  public ludzie: Array<Czlowiek>;
+
+  constructor(private listaService: ListaService) {
+    this.ludzie = this.listaService.loadLudzie();
+   }
 
   ngOnInit(): void {
   }

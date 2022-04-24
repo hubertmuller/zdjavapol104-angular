@@ -1,1 +1,9 @@
-<p>lista works!</p>
+<h2>lista zapisanych</h2>
+
+<table width="100%" border="1">
+<tr *ngFor="let czlowiek of ludzie">
+    <td>{{ czlowiek.imie}}</td>
+    <td>{{ czlowiek.nazwisko}}</td>
+    <td><a  [routerLink]="['..','usun', czlowiek.id]">Usun</a></td>
+</tr>
+</table>
