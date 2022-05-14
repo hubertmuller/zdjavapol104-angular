@@ -6,6 +6,7 @@
 
 <form [formGroup]="forma" *ngIf="!zapisano">
     {{ forma.value | json}}
+    {{forma.controls['imie'].errors | json}}
     <div>
         <label for="imieid">Imie</label>
         <input formControlName="imie"  id="imieid" type="text">

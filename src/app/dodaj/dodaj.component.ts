@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Czlowiek } from '../czlowiek.interface';
+import { imieValidator } from '../imie.validator';
 import { ListaService } from '../lista.service';
 
 @Component({
@@ -13,11 +14,11 @@ export class DodajComponent implements OnInit {
   public zapisano = false;
   public forma: FormGroup = new FormGroup (
     {
-      imie: new FormControl('Jan', {
-        validators: [Validators.minLength(2), Validators.maxLength(30)],
+      imie: new FormControl('', {
+        validators: [Validators.minLength(2), Validators.maxLength(30), imieValidator('Hubert')],
         updateOn: "change"
       }),
-      nazwisko: new FormControl('Kowalski', {
+      nazwisko: new FormControl('', {
         validators: [Validators.minLength(3), Validators.maxLength(60)],
         updateOn: "change"
       })

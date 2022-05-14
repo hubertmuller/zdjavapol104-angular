@@ -17,9 +17,11 @@ export class EdytujComponent implements OnInit {
         (params) => {
           this.idEdytowanego = params['id'];
           // wywolanie usuwania w serwisie
+          console.log('id edytowanego =', this.idEdytowanego);
           listaService.pobierzOsobe(this.idEdytowanego).subscribe(
-            (_osoba) => {
+            (osoba) => {
               //ustawienie wartosci z osoba do formularza
+              console.log(osoba);
             }
           );
 
