@@ -11,6 +11,7 @@ import { ListaComponent } from './lista/lista.component';
 import { DodajComponent } from './dodaj/dodaj.component';
 import { UsunComponent } from './usun/usun.component';
 import { BladComponent } from './blad/blad.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { BladComponent } from './blad/blad.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
