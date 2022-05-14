@@ -30,6 +30,6 @@
     </div>
 
     <div>
-        <input type="submit" value="Zapisz" (click)="zapisz()"> 
+        <input *ngIf="forma.valid" type="submit" value="Zapisz" (click)="zapisz()"> 
     </div>
 </form>

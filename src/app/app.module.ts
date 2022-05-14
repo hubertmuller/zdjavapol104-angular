@@ -13,6 +13,7 @@ import { UsunComponent } from './usun/usun.component';
 import { BladComponent } from './blad/blad.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EdytujComponent } from './edytuj/edytuj.component';
+import { DolarPipe } from './dolar.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { EdytujComponent } from './edytuj/edytuj.component';
     DodajComponent,
     UsunComponent,
     BladComponent,
-    EdytujComponent
+    EdytujComponent,
+    DolarPipe
   ],
   imports: [
     BrowserModule,
