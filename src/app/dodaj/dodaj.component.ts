@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Czlowiek } from '../czlowiek.interface';
 
 @Component({
   selector: 'app-dodaj',
@@ -30,6 +31,15 @@ export class DodajComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  public zapisz() {
+    const czlowiek: Czlowiek = {
+      imie: this.forma.controls['imie'].value,
+      nazwisko: this.forma.controls['nazwisko'].value,
+    }
+
+    
   }
 
 }

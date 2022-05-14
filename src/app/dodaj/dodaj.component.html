@@ -4,9 +4,26 @@
     <div>
         <label for="imieid">Imie</label>
         <input formControlName="imie"  id="imieid" type="text">
+        <div *ngIf="forma.controls['imie'].errors">
+            <div *ngIf="forma.controls['imie'].errors['minlength']">
+                Za krótkie imie. Powinno miec przynajmniej 
+                {{ forma.controls['imie'].errors['minlength'].requiredLength}} znakow, a ma 
+                {{ forma.controls['imie'].errors['minlength'].actualLength}}
+            </div>
+            <div *ngIf="forma.controls['imie'].errors['maxlength']">
+                Za długie imie. Powinno miec maksymalnie
+                {{ forma.controls['imie'].errors['maxlength'].requiredLength}} znakow, a ma 
+                {{ forma.controls['imie'].errors['maxlength'].actualLength}}
+            </div>
+        </div>
     </div>
     <div>
         <label for="nazwiskoid">Nazwisko</label>
         <input formControlName="nazwisko"  id="nazwiskoid" type="text">
+        <div>Blad pola</div>
+    </div>
+
+    <div>
+        <input type="submit" value="Zapisz" (click)="zapisz()"> 
     </div>
 </form>
