@@ -12,6 +12,7 @@ import { DodajComponent } from './dodaj/dodaj.component';
 import { UsunComponent } from './usun/usun.component';
 import { BladComponent } from './blad/blad.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { EdytujComponent } from './edytuj/edytuj.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ListaComponent,
     DodajComponent,
     UsunComponent,
-    BladComponent
+    BladComponent,
+    EdytujComponent
   ],
   imports: [
     BrowserModule,

@@ -12,10 +12,22 @@ export class ListaService {
 
   constructor(private http: HttpClient) { }
 
+  public dodajOsobe(czlowiek: Czlowiek): Observable<any> {
+    const naglowki = new HttpHeaders();
+    naglowki.append('Accept', 'application/json');
+    return this.http.post<any>(environment.endpointURL + "/czlowiek", {headers: naglowki})
+  }
+
   public loadLudzie(): Observable<Array<Czlowiek>> {
     const naglowki = new HttpHeaders();
     naglowki.append('Accept', 'application/json');
-    return this.http.get<Array<Czlowiek>>(environment.endpointURL, {headers: naglowki})
+    return this.http.get<Array<Czlowiek>>(environment.endpointURL + '/czlowiek', {headers: naglowki})
+  }
+
+  public pobierzOsobe(idEdytowanego: string) {
+    const naglowki = new HttpHeaders();
+    naglowki.append('Accept', 'application/json');
+    return this.http.get<Array<Czlowiek>>(environment.endpointURL + '/czlowiek/' + idEdytowanego, {headers: naglowki})
   }
 
   public usunOsobe(idUsuwanego: string): Observable<any> {

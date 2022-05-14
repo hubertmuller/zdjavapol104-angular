@@ -1,6 +1,11 @@
-{{ forma.value | json}}
+<div *ngIf="zapisano">
+    Zapisano nową osobę. Dziękujemy.
+</div>
 
-<form [formGroup]="forma">
+
+
+<form [formGroup]="forma" *ngIf="!zapisano">
+    {{ forma.value | json}}
     <div>
         <label for="imieid">Imie</label>
         <input formControlName="imie"  id="imieid" type="text">

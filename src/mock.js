@@ -23,6 +23,10 @@ const server = http.createServer( (req, res) => {
             }
         ]
         `);
+    } else if (req.method === 'POST' && req.url === '/czlowiek') {
+        res.statusCode = 200;
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        res.end();
     } else if (req.method === 'DELETE') {
         res.statusCode = 200;
         res.setHeader('Access-Control-Allow-Origin', '*');

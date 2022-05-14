@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Czlowiek } from '../czlowiek.interface';
+import { ListaService } from '../lista.service';
 
 @Component({
   selector: 'app-dodaj',
@@ -9,6 +10,7 @@ import { Czlowiek } from '../czlowiek.interface';
 })
 export class DodajComponent implements OnInit {
 
+  public zapisano = false;
   public forma: FormGroup = new FormGroup (
     {
       imie: new FormControl('Jan', {
@@ -22,7 +24,7 @@ export class DodajComponent implements OnInit {
     }
   );
 
-  constructor() { 
+  constructor(private listaService: ListaService) { 
     this.forma.controls['imie'].valueChanges.subscribe(
       (wartosc) => {
         if (wartosc === 'Piotr') this.forma.controls['nazwisko'].setValue('Nowak');
@@ -39,7 +41,13 @@ export class DodajComponent implements OnInit {
       nazwisko: this.forma.controls['nazwisko'].value,
     }
 
-    
+    this.listaService.dodajOsobe(czlowiek).subscribe(
+      (_) => {
+        this.zapisano = true;
+      }
+    )
+
+
   }
 
 }
