@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { Czlowiek } from './czlowiek.interface';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,6 @@ export class ListaService {
   public loadLudzie(): Observable<Array<Czlowiek>> {
     const naglowki = new HttpHeaders();
     naglowki.append('Accept', 'application/json');
-    return this.http.get<Array<Czlowiek>>('http://localhost:3002', {headers: naglowki})
+    return this.http.get<Array<Czlowiek>>(environment.endpointURL, {headers: naglowki})
   }
 }
