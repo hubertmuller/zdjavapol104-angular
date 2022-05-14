@@ -9,11 +9,18 @@ import { environment } from 'src/environments/environment';
 })
 export class ListaService {
 
+
   constructor(private http: HttpClient) { }
 
   public loadLudzie(): Observable<Array<Czlowiek>> {
     const naglowki = new HttpHeaders();
     naglowki.append('Accept', 'application/json');
     return this.http.get<Array<Czlowiek>>(environment.endpointURL, {headers: naglowki})
+  }
+
+  usunOsobe(idUsuwanego: string): Observable<any> {
+    const naglowki = new HttpHeaders();
+    naglowki.append('Accept', 'application/json');
+    return this.http.delete<any>(environment.endpointURL + "/czlowiek/" + idUsuwanego, {headers: naglowki})
   }
 }

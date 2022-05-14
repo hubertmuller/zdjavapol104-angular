@@ -1,1 +1,9 @@
-<p>usun works!</p>
+
+<div *ngIf="!blad">
+    <h1 *ngIf="!usunieto">Uuwam osobę id = {{idUsuwanego}}...</h1>
+    <h1 *ngIf="usunieto">Usunięto osobę o id = {{idUsuwanego}}</h1>
+</div>
+
+<h1 *ngIf="blad">
+    Wystąpił błąd połaczenia z endpointem
+</h1>

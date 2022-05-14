@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ListaService } from '../lista.service';
 
 @Component({
   selector: 'app-usun',
@@ -7,9 +9,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsunComponent implements OnInit {
 
-  constructor() { }
+  public idUsuwanego = "";
+  public usunieto = false;
+  public blad = false;
 
-  ngOnInit(): void {
-  }
+  constructor(private listaService: ListaService,
+    private route: ActivatedRoute ) { 
+
+      this.route.params.subscribe(
+        (params) => {
+          this.idUsuwanego = params['id'];
+          // wywolanie usuwania w serwisie
+          listaService.usunOsobe(this.idUsuwanego).subscribe(
+            (_) => {
+              this.usunieto = true;
+            },
+            (error) => {
+              this.blad = true;
+            }
+          );
+
+        }
+      )
+    }
+
+  ngOnInit(): void {}
+
 
 }
