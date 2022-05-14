@@ -24,7 +24,7 @@ export class UsunComponent implements OnInit {
             (_) => {
               this.usunieto = true;
             },
-            (error) => {
+            (_error) => {
               this.blad = true;
             }
           );
