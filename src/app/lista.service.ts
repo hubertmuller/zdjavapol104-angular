@@ -18,7 +18,7 @@ export class ListaService {
     return this.http.get<Array<Czlowiek>>(environment.endpointURL, {headers: naglowki})
   }
 
-  usunOsobe(idUsuwanego: string): Observable<any> {
+  public usunOsobe(idUsuwanego: string): Observable<any> {
     const naglowki = new HttpHeaders();
     naglowki.append('Accept', 'application/json');
     return this.http.delete<any>(environment.endpointURL + "/czlowiek/" + idUsuwanego, {headers: naglowki})
